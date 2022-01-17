@@ -1,6 +1,13 @@
-Hello Computor!
+# Hello Computor!
 
 This is an example EFI module that makes use of clang, [make,] and optionally qemu.
+
+## Using Make for automatic build
+
+Update gitmodules using `git submodule update --init --recursive`.
+Then, you may make and run the emulated efi using `make -f .mk qemu`
+
+## Manually
 
 Clang compiles the special efi binary type on many operating systems without extra steps.
 
@@ -95,5 +102,6 @@ If you see the program, in this instance named "MYQUBIC.efi", you run it simply 
 FS0:\> MYQUBIC.efi
 
 ```
+
 
 
