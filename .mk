@@ -42,7 +42,11 @@ $(BINDIR)/$(TARGET): $(OBJS)
 	@ mkdir -p $(@D)
 	@ $(CC) $(CPTR_LDFLAGS) -o $@ $^
 
-$(OUTDIR)/%.o: %.c
+$(OUTDIR)/%.o: %.c efi-headers
 	@ mkdir -p $(@D)
-	@ $(CC) $(CPTR_CFLAGS) -o $@ -c $^
+	@ $(CC) $(CPTR_CFLAGS) -o $@ -c $<
 
+.PHONY: efi-headers
+
+efi-headers:
+	git submodule update --init --recursive
