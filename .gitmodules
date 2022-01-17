@@ -1,0 +1,3 @@
+[submodule "extern/efi"]
+	path = extern/efi
+	url = https://github.com/yoppeh/efi/
