@@ -27,10 +27,10 @@ be found here:
 https://github.com/llvm/llvm-project/releases/download/llvmorg-13.0.0/LLVM-13.0.0-win64.exe
 This should install clang and lld.
 
-## Compile EFI executable
+## Compile EFI executable manually
 
 For each source file ending in `.c`, compile ***.c to objects ***.o (replace MYPROGRAM with your source code file name):
-`clang -target x86_64-unknown-windows -ffreestanding -fshort-wchar -mno-red-zone -o MYPROGRAM.o -c MYPROGRAM.c`
+`clang -target x86_64-unknown-windows -ffreestanding -fshort-wchar -mno-red-zone -Iextern/efi -o MYPROGRAM.o -c MYPROGRAM.c`
 
 Then collect all these objects to generate your efi binary (replace MYQUBIC and FIRST/SECOND/.../LAST with your generated objects):
 `clang -target x86_64-unknown-windows -nostdlib -Wl,-entry:efi_main -Wl,-subsystem:efi_application -fuse-ld=lld-link -o MYQUBIC.efi FIRST.o SECOND.o .... LAST.o`
